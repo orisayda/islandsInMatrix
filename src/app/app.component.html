@@ -1,0 +1,36 @@
+<div class="flexy">
+  <!-- A box of the inputs fields -->
+  <div class="boxInputs">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <!-- boostrap button group for choosing witch world to calculate by -->
+        <label [className]="(!witchWorld) ? 'btn btn-secondary active' : 'btn btn-secondary'">
+            <input type="radio" autocomplete="off" id="option1" name="options" value="noSides" (click)="setWorldType(false)" ngModel> Flat World
+        </label>
+        <label [className]="(witchWorld) ? 'btn btn-secondary active' : 'btn btn-secondary'">
+            <input type="radio" autocomplete="off" id="option2" name="options" value="Sides" (click)="setWorldType(true)" ngModel> Round World
+        </label>
+    </div>
+    <div class="islandCounterText">
+      Number of islands in the binary matrix: 
+    </div>
+      <!-- present the number of islands in the matrix -->
+      <div class="islandCounter">
+          {{islandCount}}
+      </div>
+    <ul class="matrixLine">
+      <li class="matrixItemGreen"></li>
+      <li>Represents 1</li>
+      <li class="matrixItemBlue"></li>
+      <li>Represents 0</li>
+    </ul>
+  </div>
+  <!-- A box of the binary matrix view by ngFor (twice) to view the matrix cells  -->
+  <div class="boxMap">
+    <ul class="matrixLine" *ngFor="let mat of matrix; let jindex = index" [attr.data-index]="jindex">
+      <li [className]="(i.val==1) ? 'matrixItemGreen' : 'matrixItemBlue'" *ngFor="let i of mat; let in = index" [attr.data-index]="in" (click)="toggleByIndex(in,jindex)">
+      </li>
+    </ul>
+  </div>
+</div>
+
+
