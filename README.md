@@ -1,5 +1,10 @@
 # IslandsApp
 
+Web app for display a binary matrix in colors and calculate number of islands inside the matrix with DFS algorithm.
+The DFS algorithm fit by user choice: 
+  * If the matrix is flat - matrix with borders.
+  * If the matrix is round - matrix without borders, like a ball.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
 ## Development server
